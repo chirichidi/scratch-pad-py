@@ -1,4 +1,4 @@
-from logger_interface import LoggerInterface
+from .logger_interface import LoggerInterface
 
 class LoggerImpl(LoggerInterface):
 

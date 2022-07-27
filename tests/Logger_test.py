@@ -5,17 +5,17 @@ import json
 
 from datetime import datetime
 
-from scratch_pad_py.logger import Logger
-from scratch_pad_py.composite_logger import CompositeLogger
-from scratch_pad_py.console_logger import ConsoleLogger
-from scratch_pad_py.file_logger import FileLogger
-from scratch_pad_py.fluent_logger import FluentLogger
-from scratch_pad_py.jandi_logger import JandiLogger
-from scratch_pad_py.line_logger import LineLogger
-from scratch_pad_py.memory_logger import MemoryLogger
-from scratch_pad_py.null_logger import NullLogger
-from scratch_pad_py.scribe_logger import ScribeLogger
-from scratch_pad_py.telegram_logger import TelegramLogger
+from scratchpad.logger import Logger
+from scratchpad.composite_logger import CompositeLogger
+from scratchpad.console_logger import ConsoleLogger
+from scratchpad.file_logger import FileLogger
+from scratchpad.fluent_logger import FluentLogger
+from scratchpad.jandi_logger import JandiLogger
+from scratchpad.line_logger import LineLogger
+from scratchpad.memory_logger import MemoryLogger
+from scratchpad.null_logger import NullLogger
+from scratchpad.scribe_logger import ScribeLogger
+from scratchpad.telegram_logger import TelegramLogger
 
 
 class TestLogger(unittest.TestCase):

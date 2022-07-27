@@ -1,4 +1,4 @@
-from logger_impl import LoggerImpl
+from .logger_impl import LoggerImpl
 
 from thrift import Thrift                                                                              
 from thrift.transport import TSocket

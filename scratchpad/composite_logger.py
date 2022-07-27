@@ -1,5 +1,5 @@
-from logger_impl import LoggerImpl
-from logger_interface import LoggerInterface
+from .logger_impl import LoggerImpl
+from .logger_interface import LoggerInterface
 
 class CompositeLogger(LoggerImpl):
     def __init__(self, config = {}):
