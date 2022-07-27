@@ -7,6 +7,12 @@ https://github.com/polonaiz/scratch-pad
 mind blowing python toolset. why not pr?
 
 
+# Spec
+
+Loggers: composite, console, file, fluent, jandi, line, memory, null, scribe, telegram
+
+
+
 # Logger interface
 ```
 from .logger_interface import LoggerInterface

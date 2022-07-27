@@ -6,8 +6,8 @@ with open("README.md", "r", encoding="utf-8") as f:
     long_descriprion = f.read()
 
 setuptools.setup(
-    name             = 'scratch-pad-py',
-    version          = '0.0.1',
+    name             = 'pyscratchpad',
+    version          = '0.0.2',
     description      = 'python logger libary',
     long_description = long_descriprion,
     long_description_content_type = "text/markdown",
@@ -22,9 +22,9 @@ setuptools.setup(
         'fluent-logger==0.10.0'
     ],
     keywords         = ['logger'],
-    python_requires  = '>=3.9',
+    python_requires  = '>=3.7',
     classifiers      = [
-        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.7',
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent"
     ],

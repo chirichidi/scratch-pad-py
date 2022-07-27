@@ -2,10 +2,11 @@
 .idea/
 .vscode/
 .dist/
-scratch_pad_py/scratch_pad_py.egg-info/
-scratch_pad_py.egg-info/
+scratch_pad_py/scratch_pad_py*
+*.egg-info/
 __pycache__/
 *.pyc
 *.tar.gz
 *.whl
 build/
+dist

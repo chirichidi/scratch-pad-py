@@ -13,7 +13,7 @@ from .logger import Logger
 from .memory_logger import MemoryLogger
 from .null_logger import NullLogger
 from .scribe_logger import ScribeLogger
-from .telgram_logger import TelegramLogger
+from .telegram_logger import TelegramLogger
 from .retry import Retry
 
 __all__ = [

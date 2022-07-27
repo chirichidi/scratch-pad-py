@@ -15,7 +15,7 @@ from scratch_pad_py.line_logger import LineLogger
 from scratch_pad_py.memory_logger import MemoryLogger
 from scratch_pad_py.null_logger import NullLogger
 from scratch_pad_py.scribe_logger import ScribeLogger
-from scratch_pad_py.telgram_logger import TelegramLogger
+from scratch_pad_py.telegram_logger import TelegramLogger
 
 
 class TestLogger(unittest.TestCase):
