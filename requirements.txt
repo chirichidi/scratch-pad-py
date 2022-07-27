@@ -1,0 +1,4 @@
+thrift==0.16.0
+requests==2.28.1
+facebook-scribe==2.0.post1
+fluent-logger==0.10.0
