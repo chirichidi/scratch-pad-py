@@ -1,5 +1,6 @@
 from .logger_impl import LoggerImpl
 from .logger_interface import LoggerInterface
+import copy
 
 class CompositeLogger(LoggerImpl):
     def __init__(self, config = {}):
@@ -14,7 +15,7 @@ class CompositeLogger(LoggerImpl):
     def log(self, message: dict, option: dict = {}):
         mergedMessage = {}
         if len(self.config["defaults"]) > 0:
-            mergedMessage: dict = self.config["defaults"]
+            mergedMessage: dict = copy.deepcopy(self.config["defaults"])
             for k, v in mergedMessage.items():
                 if callable(v):
                     v()
