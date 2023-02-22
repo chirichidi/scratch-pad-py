@@ -8,7 +8,9 @@ import urllib.parse
 
 class TelegramLogger(LoggerImpl):
 
-    def __init__(self, token, chat_id, config: dict = {}):
+    def __init__(self, token, chat_id, config: dict = None):
+        if config is None:
+            config = {}
 
         if "headers" not in config:
             config["headers"] = {'Content-Type': 'application/x-www-form-urlencoded'}
@@ -18,7 +20,9 @@ class TelegramLogger(LoggerImpl):
 
         self.config = config
 
-    def log(self, message: dict, option: dict = {}):
+    def log(self, message: dict, option: dict = None):
+        if option is None:
+            option = {}
 
         url = self.url
 
@@ -31,4 +35,4 @@ class TelegramLogger(LoggerImpl):
             
         url += urllib.parse.urlencode(mergedPostFields)
         
-        return requests.get(url=url, headers=headers)
+        return requests.get(url=url, headers=headers, timeout=10)

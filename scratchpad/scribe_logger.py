@@ -13,7 +13,10 @@ class ScribeLogger(LoggerImpl):
 
     client: scribe = None
 
-    def __init__(self, config: dict = {}):
+    def __init__(self, config: dict = None):
+        if config is None:
+            config = {}
+
         if "host" not in config:
             config["host"] = "localhost"
         
@@ -26,7 +29,9 @@ class ScribeLogger(LoggerImpl):
         self.config = config
 
 
-    def log(self, message: dict, option: dict = {}):
+    def log(self, message: dict, option: dict = None):
+        if option is None:
+            option = {}
         if self.client is None:
             
             self.socktransport = TSocket.TSocket(self.config["host"], self.config["port"])

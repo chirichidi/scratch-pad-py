@@ -4,7 +4,9 @@ from .logger_impl import LoggerImpl
 from fluent import sender
 
 class FluentLogger(LoggerImpl):
-    def __init__(self, config: dict = {}):
+    def __init__(self, config: dict = None):
+        if config is None:
+            config = {}
 
         if "host" not in config:
             config["host"] = "localhost"
@@ -19,7 +21,9 @@ class FluentLogger(LoggerImpl):
         self.client = None
 
 
-    def log(self, message: dict, option: dict = {}):
+    def log(self, message: dict, option: dict = None):
+        if option is None:
+            option = {}
         if self.client is None:
             self.client = sender.FluentSender(self.config["tag"], host=self.config["host"], port=self.config["port"])
         

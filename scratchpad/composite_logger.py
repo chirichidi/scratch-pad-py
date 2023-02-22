@@ -3,7 +3,10 @@ from .logger_interface import LoggerInterface
 import copy
 
 class CompositeLogger(LoggerImpl):
-    def __init__(self, config = {}):
+    def __init__(self, config = None):
+        if config is None:
+            config = {}
+
         if "loggerFilterPairs" not in config:
             config["loggerFilterPairs"] = []
         if "defaults" not in config:
@@ -12,7 +15,10 @@ class CompositeLogger(LoggerImpl):
         self.config = config
 
 
-    def log(self, message: dict, option: dict = {}):
+    def log(self, message: dict, option: dict = None):
+        if option is None:
+            option = {}
+
         mergedMessage = {}
         if len(self.config["defaults"]) > 0:
             mergedMessage: dict = copy.deepcopy(self.config["defaults"])

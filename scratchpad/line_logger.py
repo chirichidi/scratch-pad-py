@@ -6,8 +6,9 @@ import json
 
 class LineLogger(LoggerImpl):
 
-    def __init__(self, token, config: dict = {}):
-
+    def __init__(self, token, config: dict = None):
+        if config is None:
+            config = {}
         if "url" not in config:
             config["url"] = "https://notify-api.line.me/api/notify"
 
@@ -17,7 +18,9 @@ class LineLogger(LoggerImpl):
 
         self.config = config
 
-    def log(self, message: dict, option: dict = {}):
+    def log(self, message: dict, option: dict = None):
+        if option is None:
+            option = {}
 
         url = self.config["url"]
         headers = self.config["headers"]

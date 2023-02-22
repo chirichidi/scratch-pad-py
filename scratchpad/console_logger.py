@@ -4,10 +4,15 @@ import json
 
 class ConsoleLogger(LoggerImpl):
 
-    def __init__(self, config: dict = {}):
+    def __init__(self, config: dict = None):
+        if config is None:
+            config = {}
         self.config = config
 
-    def log(self, message: dict, option: dict = {}):
+    def log(self, message: dict, option: dict = None):
+        if option is None:
+            option = {}
+            
         appendNewLine = 0
         if "appendNewLine" in self.config:
             appendNewLine = self.config["appendNewLine"]

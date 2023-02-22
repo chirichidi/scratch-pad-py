@@ -12,21 +12,21 @@ class Logger(LoggerInterface):
         return cls.logger
 
     @classmethod
-    def info(cls, message: dict, option: dict = {}):
+    def info(cls, message: dict, option: dict = None):
         cls.logger.info(message, option)
 
     @classmethod
-    def notice(cls, message: dict, option: dict = {}):
+    def notice(cls, message: dict, option: dict = None):
         cls.logger.notice(message, option)
 
     @classmethod
-    def warning(cls, message: dict, option: dict = {}):
+    def warning(cls, message: dict, option: dict = None):
         cls.logger.warning(message, option)
 
     @classmethod
-    def error(cls, message: dict, option: dict = {}):
+    def error(cls, message: dict, option: dict = None):
         cls.logger.error(message, option)
 
     @classmethod
-    def critical(cls, message: dict, option: dict = {}):
+    def critical(cls, message: dict, option: dict = None):
         cls.logger.critical(message, option)

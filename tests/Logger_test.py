@@ -62,13 +62,9 @@ class TestLogger(unittest.TestCase):
             }
         )
         memoryLogger = MemoryLogger()
-        memoryLoggerCompositeFilter = CompositeLogger.getSelectorLevel(["info", "error"])
+        memoryLoggerCompositeFilter = CompositeLogger.getSelectorLevel(["notice", "error"])
 
-        message = {
-            "type": "composite",
-            "message": "hello world"
-        }
-
+        
         compositLogger = CompositeLogger(
             config={
                 "defaults": {
@@ -89,8 +85,16 @@ class TestLogger(unittest.TestCase):
         )
 
         #when
-        compositLogger.info(message)
-        compositLogger.notice(message) 
+        compositLogger.info(message = {
+            "type": "composite",
+            "message": "hello world",
+            "aa": 123
+        })
+        compositLogger.notice(message = {
+            "type": "composite",
+            "message": "hello world",
+            "bb": 12345
+        }) 
 
         #then
         logs: list = memoryLogger.getInMomory()
@@ -104,7 +108,7 @@ class TestLogger(unittest.TestCase):
         #given 
         url = "url"
         logger = JandiLogger(
-            url=url
+            url=url,
         )
 
         #when
@@ -116,6 +120,28 @@ class TestLogger(unittest.TestCase):
         #then
         logger.info(message)
 
+    def testJandiLoggerWithBodyStyle(self):
+        #given 
+        url = "url"
+        logger = JandiLogger(
+            url=url,
+            config={
+                "headers": {"Content-Type": "application/json", "Accept": "application/vnd.tosslab.jandi-v2+json"},
+            }
+        )
+
+        #when
+        message = {
+            "type": "jandi",
+            "message": "hello world"
+        }
+        option = {
+            "connectColor": "#FAC11B",
+            "connectInfo": [{"title": "connectInfo TITLE", "description": "connectInfo description"}]
+        }
+        
+        #then
+        logger.info(message, option)
 
     def testScribeLogger(self):
         #given 
