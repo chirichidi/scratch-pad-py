@@ -27,11 +27,8 @@ class FluentLogger(LoggerImpl):
             option = {}
         if self.client is None:
             self.client = sender.FluentSender(self.config["tag"], host=self.config["host"], port=self.config["port"])
-        
-        if "label" not in option:
-            option["label"] = "test"
 
-        return self.client.emit(option["label"], message)
+        return self.client.emit(option.get("label"), message)
 
 
     def __del__(self):
