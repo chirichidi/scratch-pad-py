@@ -1,6 +1,6 @@
+import socket
+
 from .logger_impl import LoggerImpl
-
-
 from fluent import sender
 
 class FluentLogger(LoggerImpl):
@@ -19,6 +19,7 @@ class FluentLogger(LoggerImpl):
             
         self.config = config
         self.client = None
+        self.check_connection()
 
 
     def log(self, message: dict, option: dict = None):
@@ -39,6 +40,14 @@ class FluentLogger(LoggerImpl):
             self.client = None
         except:
             pass
+
+    def check_connection(self):
+        try:
+            timeout = 5
+            socket.setdefaulttimeout(timeout)
+            socket.socket(socket.AF_INET, socket.SOCK_STREAM).connect((self.config["host"], self.config["port"]))
+        except ConnectionRefusedError as e:
+            raise e
 
 
 if __name__ == "__main__":
