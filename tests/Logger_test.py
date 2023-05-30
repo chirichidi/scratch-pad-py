@@ -1,4 +1,6 @@
 import unittest
+from time import sleep
+
 import autoloader  # pylint: disable=unused-import
 
 import json
@@ -68,7 +70,7 @@ class TestLogger(unittest.TestCase):
         compositLogger = CompositeLogger(
             config={
                 "defaults": {
-                    "datetime": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                    "datetime": lambda: datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                     "program": "scratch-pad-python",
                 },
                 "loggerFilterPairs": [
@@ -90,6 +92,7 @@ class TestLogger(unittest.TestCase):
             "message": "hello world",
             "aa": 123
         })
+        sleep(2)
         compositLogger.notice(message = {
             "type": "composite",
             "message": "hello world",
