@@ -24,7 +24,7 @@ class CompositeLogger(LoggerImpl):
             mergedMessage: dict = copy.deepcopy(self.config["defaults"])
             for k, v in mergedMessage.items():
                 if callable(v):
-                    v()
+                    mergedMessage[k] = v()
         
         mergedMessage.update(message)
 
