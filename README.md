@@ -85,7 +85,7 @@ message = {
 compositLogger = CompositeLogger(
     config={
         "defaults": {
-            "datetime": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "datetime": lambda: datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             "program": "scratch-pad-python",
         },
         "loggerFilterPairs": [
