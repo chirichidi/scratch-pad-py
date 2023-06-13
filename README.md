@@ -9,7 +9,7 @@ mind blowing python toolset. why not pr?
 
 # Spec
 
-Loggers: composite, console, file, fluent, jandi, line, memory, null, scribe, telegram
+Loggers: composite, console, file, fluent, jandi, line, memory, null, scribe, telegram, slack
 
 
 
@@ -144,6 +144,18 @@ message = {
         "type": "fluent",
         "message": "hello world"
     }
+
+logger.info(message)
+```
+
+SlackLogger
+```
+url = "url"
+logger = SlackLogger(url=url)
+message = {
+    "type": "slack",
+    "message": "hello world"
+}
 
 logger.info(message)
 ```

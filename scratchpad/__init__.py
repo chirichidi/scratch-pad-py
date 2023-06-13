@@ -14,6 +14,7 @@ from .memory_logger import MemoryLogger
 from .null_logger import NullLogger
 from .scribe_logger import ScribeLogger
 from .telegram_logger import TelegramLogger
+from .slack_logger import SlackLogger
 from .retry import Retry
 
 __all__ = [
@@ -30,5 +31,6 @@ __all__ = [
     'NullLogger',
     'ScribeLogger',
     'TelegramLogger',
+    'SlackLogger',
     'Retry',
 ]

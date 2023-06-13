@@ -51,8 +51,8 @@ if __name__ == "__main__":
     logger = FluentLogger()
 
     message = {
-            "type": "fluent",
-            "message": "hello world"
-        }
+        "type": "fluent",
+        "message": "hello world"
+    }
 
     logger.log(message)
