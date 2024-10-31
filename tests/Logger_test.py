@@ -213,11 +213,18 @@ class TestLogger(unittest.TestCase):
     def testSlackLogger(self):
         #given
         url = "https://hooks.slack.com/services/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"
+        channel = "#slack_test"
         message = {
             "type": "slack",
             "message": "hello world"
         }
-        
-        #when
+
+        # when
+
+        # no channel
         logger = SlackLogger(url=url)
+        logger.info(message)
+
+        # with channel
+        logger = SlackLogger(url=url, channel=channel)
         logger.info(message)
