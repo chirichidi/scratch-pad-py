@@ -7,12 +7,15 @@ class SlackLogger(LoggerImpl):
     
     
     
-    def __init__(self, url, config: dict = None) -> None:
+    def __init__(self, url, channel: str = None, config: dict = None) -> None:
         if config is None:
             config = {}
             
         if "url" not in config:
             config["url"] = url
+
+        if channel is not None:
+            config["channel"] = channel
 
         self.config = config
             
@@ -24,9 +27,16 @@ class SlackLogger(LoggerImpl):
         headers = {
             "Content-type": "application/json"
         }
-        mergedPostFields = json.dumps({
+
+        postFields = {
             "text": json.dumps(message, indent=4)
-        }, indent=4)
+        }
+
+        channel = self.config.get("channel")
+        if channel is not None:
+            postFields["channel"] = channel
+
+        mergedPostFields = json.dumps(postFields)
         url = self.config["url"]
         
         return requests.post(url=url, headers=headers, data=mergedPostFields)

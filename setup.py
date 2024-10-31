@@ -7,7 +7,7 @@ with open("README.md", "r", encoding="utf-8") as f:
 
 setuptools.setup(
     name             = 'scratchpad-py',
-    version          = '0.0.6',
+    version          = '0.0.7',
     description      = 'python logger libary',
     long_description = long_descriprion,
     long_description_content_type = "text/markdown",
